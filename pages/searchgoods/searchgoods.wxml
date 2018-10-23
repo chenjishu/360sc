@@ -2,9 +2,9 @@
 <form bindsubmit="submitOrder">
 <view class="search-wrapper">
   <view class="input-wrapper">
-    <input type="text" name="name"></input>
+    <input type="text" name="name" placeholder='输入商品名称'></input>
   </view>
-  <button class="img-wrapper" formType="submit">
+  <button class="img-wrapper" formType="submit" >
     搜索
   </button>
 </view>
@@ -21,7 +21,7 @@
 <block wx:for="{{list}}">
  <view class="good-wrapper" bindtap="toGoodDetail" id="{{item.id}}">
     <view class="good">
-      <image src="{{imgsrc+item.img}}"></image>
+      <image src="{{imgsrc+item.img}}" style="margin-top:10px"></image>
       <view class="good-name">{{item.goodsName}}</view>
       <view class="good-in">{{item.goodsLabel}}</view>
       <view class="do">

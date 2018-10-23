@@ -32,7 +32,7 @@
   <view class="list">
     <view > 详细地址</view>
     <view class="fill"  style="flex:1">
-      <textarea style="width:100%"  placeholder="街道 街道 街道 " name="address" />
+      <textarea style="width:100%"  placeholder="街道 门牌号等 " name="address" />
     </view>
   </view>
 

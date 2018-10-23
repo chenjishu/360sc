@@ -31,7 +31,7 @@
            </text>
         </view>
           <view>
-            {{item.num}}*
+            {{item.num}}×
             <text style="color:red;">{{item.price}}</text>
           </view>
         </view>
@@ -40,13 +40,17 @@
   </view>
     <view class="order-title">订单金额</view>
   <view class="order-list">
-    <view>
-      <view class="left">商品金额</view>
-      <view class="right">{{detail.totalFee}}</view>
+   <view>
+      <view class="left">订单总金额</view>
+      <view class="right">￥{{detail.totalFee*1+detail.postFee*1}}</view>
     </view>
     <view>
-      <view class="left">订单编号</view>
-      <view class="right">{{detail.id}}</view>
+      <view class="left">商品金额</view>
+      <view class="right">￥{{detail.totalFee}}</view>
+    </view>
+      <view>
+      <view class="left">运费</view>
+      <view class="right">￥{{detail.postFee}}</view>
     </view>
     <view>
       <view class="left">收货地址</view>
@@ -57,10 +61,11 @@
     </view>
   </view>                                       
 </view>
-<view style="height:50px;"></view>
+<view style="height:50px;" ></view>
 <view class="bot">
 <view bindtap='confirm'  data-id="{{detail.id}}" wx:if="{{detail.status==='2'}}">确认收货</view>
 <view bindtap="cancelOrder" data-id="{{detail.id}}" wx:if="{{detail.status==='0'||detail.status==='1'}}">取消订单</view>
 <view bindtap="logistics" data-no="{{detail.orderNo}}" wx:if="{{detail.status==='2'}}">查看物流</view>
+<view bindtap="continuePay" data-no="{{detail.orderNo}}" wx:if="{{detail.status==='0'}}">继续付款</view>
 
 </view>

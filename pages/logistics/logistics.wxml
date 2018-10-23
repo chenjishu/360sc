@@ -16,7 +16,7 @@
       </view>
     </view>
     <view class="copy-wrapper">
-      <view class="copy" bindtap="copy">复制</view>
+      <view class="copy" bindtap="copy" data-no="{{list[0].orderNo}}">复制</view>
     </view>
   </view>
 
@@ -35,7 +35,7 @@
     </view>
     <view class="process">
       <view>
-        {{item.context}}
+        {{item.context||'暂无物流信息'}}
       </view>
     </view>   
   </view>

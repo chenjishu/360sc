@@ -301,7 +301,7 @@ delectById(id){
     }
     console.log(price)
     this.setData({
-      price
+      price: price.toFixed(2)
     })
   },
   fixPriceAll(arr){
@@ -311,15 +311,24 @@ delectById(id){
         price += arr[i].quantity * arr[i].shopPrice
       }
       this.setData({
-        price
+        price: price.toFixed(2)
       })
     }else{
       this.setData({
         price:0
       })
     }
-   
-   
-  }
+  },
+  bindGetUserInfo: function (e) {
+    const that = this;
+    app.getUserInfo(e).then(() => {
+      that.onShow()
+    }
+    ).catch(() => {
+      console.log('ju绝了你')
+    }
+
+    )
+  },
 
 })  

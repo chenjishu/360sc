@@ -16,5 +16,19 @@
     </view>
   </view>
 </form>-->
-<button bindtap='login'>点击登录小程序</button>
+<view style="text-align:center;"> <view  style="width:100px;height:100px;margin-top:100px;margin:50px auto 0;">
+<image style="width:100px;height:100px;background:#ADCBE1;border-radius:50%;" src="/images/im.png"></image>
+</view></view>
+<view style="width:80%;height:1px;background:#eee;margin:20px auto;"></view>
+<view style="width:80%;margin:0 auto;">
+<view style="font-size:14px;color:#333;">
+该小程序由是一精舍开发，请提供一下授权，即可进行下一步操作
+</view>
+<view style="font-size:12px;color:#999;margin-top:10px;">
+. 获得你的公开信息（昵称，头像等）
+</view>
+
+ </view>
+
+<button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">确认授权</button>
 

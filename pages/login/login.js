@@ -8,28 +8,7 @@ Page({
    */
   data: {
   },
-  login(){
-    const that=this;
-    app.getInfo().then((res)=>{
-      console.log(res)
-      wx.getUserInfo({
-      success: function (data) {
-        console.log(data.userInfo)
-        wx.setStorageSync('userInfo', data.userInfo);
-        that.getUid(res, data.userInfo.nickName, data.userInfo.avatarUrl).then((uid)=>{
-          wx.setStorageSync('uid', uid);
-          wx.navigateBack({
-            
-          })
-        })
-      },
-
-  })
-     
-    })
-    
-  },
-  getUid(openid,name,portraitImg){
+ /** getUid(openid,name,portraitImg){
     return new Promise((resolve,reject)=>{
       const obj = new Object;
       obj.openid = openid;
@@ -43,7 +22,20 @@ Page({
       })
     })
   
-  }
+  },**/
+  bindGetUserInfo: function (e) {
+    const that = this;
+    app.getUserInfo(e).then(() => {
+      wx.navigateBack({
+        
+      })
+    }
+    ).catch(() => {
+     
+    }
+
+    )
+  },
 
  /** bindChangePhoneNumber(e){
     const mobile = e.detail.value;

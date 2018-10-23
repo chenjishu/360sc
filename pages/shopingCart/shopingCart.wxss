@@ -12,7 +12,7 @@
 }
 
 .sel-good>.good-img{
-  width:100px;text-align: right;
+  width:100px;text-align: right;margin-top:10px;
 }
 .sel-good>.good-img>image{
   width:75px;height:75px;
@@ -113,7 +113,7 @@ scroll-view{
 
 
 .need-login{
-  display:flex;justify-content: center;align-items: center;flex-direction: column;
+  justify-content: center;align-items: center;flex-direction: column;
   position:fixed;top:0;right:0;
   left:0;
   bottom:0;

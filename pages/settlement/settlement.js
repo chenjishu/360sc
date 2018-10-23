@@ -1,6 +1,8 @@
  var app = getApp();
 import urls from '../../utils/urls'
 import post from '../../utils/request';
+let ordering=false;
+let down=false;
 Page({
   data: {
     list:[],
@@ -19,18 +21,15 @@ Page({
     wx.getStorage({
       key: 'userId',
       success: function (res) {
-        //console.log(res.data)
+      
       },
       fail: function () {
-      //  wx.navigateTo({
-      //    url: '../login/login',
-      //  })
+
       }
     })
-
   },
-  
   onShow: function () {
+    ordering=false;
     const that=this
     app.myGetSto().then(res=>{
       that.getList(res).then((res) => {
@@ -62,10 +61,32 @@ Page({
    
   },
   order(){
+    if(ordering){
+      return;
+    }
+    ordering=true;
     wx.showLoading({
       title: '',
+      mask:true
     })
     const that = this;
+    if (!that.data.defaultAddress.id){
+      wx.hideLoading();
+      wx.showModal({
+        title: '默认地址不能为空',
+        content: '前往填写默认地址?',
+        success:function(res){
+          if (res.confirm){
+            wx.navigateTo({
+              url: '../selectAdress/selectAdress'
+            })
+          }
+        
+        }
+      })
+      return;
+
+    }
       let str = '';
       for (var k in this.data.list) {
         str += this.data.list[k].goodsSn + '_' + this.data.list[k].quantity + ','
@@ -74,6 +95,7 @@ Page({
 
       app.myGetSto().then((res) => {
         app.getInfo().then(openid => {
+         console.log(openid)
           const obj = new Object;
           obj.uid = res;
           obj.openid = openid;
@@ -90,17 +112,19 @@ Page({
                 'signType': 'MD5',
                 'paySign': res.result.sign,
                 'success': function (res) {
-                  console.log(1)
+                  down=true;
                   wx.navigateTo({
                     url: '../success/success',
                   })
+
                  },
                 'fail': function (res) {
               
                  },
-                'complete': function (res) { }
+                'complete': function (res) { ordering=false;}
               }) 
           }).catch((e) => {
+            ordering=false;
             console.log(2)
             console.log('失败了' + e)
           })
@@ -130,6 +154,7 @@ Page({
     return promise;
   },
   countPrice(list){
+    const that=this;
     let price=0;
     console.log(list)
     for (var k in list){
@@ -137,7 +162,8 @@ Page({
       console.log(price)
   }
   this.setData({
-    price
+    price:price.toFixed(2),
+    all: (price * 1 + that.data.expressFee * 1).toFixed(2)
   })
 
     
@@ -147,7 +173,8 @@ Page({
     const obj=new Object;
     post(urls.expressFee,obj).then(res=>{
       that.setData({
-        expressFee: res.result.expressFee
+        expressFee: res.result.expressFee,
+        all: (that.data.price*1 + res.result.expressFee*1).toFixed(2)
       })
     })
     

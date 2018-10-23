@@ -3,14 +3,12 @@
 
 </view>
 <swiper indicator-dots="true" circular="ture" autoplay="true" interval="3000" duration="500" class="swiper">
-
+  <block wx:for="{{bannerimg}}">
   <swiper-item class="swiper">
-    <image src="/images/a1.png" class="slide-image swiper" ></image>
+    <image src="{{imgsrc+'/hkyp/commodity/element/'}}{{item.photo_main}}" class="slide-image swiper" ></image>
   </swiper-item>
+  </block>
   
-  <swiper-item class="swiper">
-    <image src="/images/a1.png" class="slide-image swiper" ></image>
-  </swiper-item>
 </swiper>
 <view class="selection">
   <view class="title">精选商品</view>
@@ -26,8 +24,8 @@
       <view class="add-pri">
         <view class="good-pri">￥{{item.shopPrice}}</view>
         <view class="add" >
-          <image src="/images/add.png" catchtap='addShop' data-goodsSn="{{item.goodsSn}}" wx:if="{{item.wishStatus==2}}"></image>
-           <image src="/images/add-red.png" catchtap='removeShop' style="animation: dou 1s  1;" data-goodsSn="{{item.goodsSn}}" data-id="{{item.id}}" wx:if="{{item.wishStatus==1}}"></image>
+          <image src="/images/like.png" catchtap='addShop' data-goodsSn="{{item.goodsSn}}" wx:if="{{item.wishStatus==2}}"></image>
+           <image src="/images/like-red.png" catchtap='removeShop' style="animation: dou 1s  1;" data-goodsSn="{{item.goodsSn}}" data-id="{{item.id}}" wx:if="{{item.wishStatus==1}}"></image>
         </view>
       </view>
     </view>
@@ -42,7 +40,7 @@
 
       <view class="good-wrapper">
         <view class="good" bindtap="toGoodDetail" id="{{item.id}}">
-          <image src="{{imgsrc+item.img}}"></image>
+          <image src="{{imgsrc+item.img}}" style="margin-top:10px"></image>
           <view class="good-name">{{item.goodsName}}</view>
           <view class="good-in">{{item.goodsLabel}}</view>
           <view class="do">

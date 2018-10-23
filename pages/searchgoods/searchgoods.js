@@ -103,7 +103,7 @@ Page({
         })
         page++;
         hasmore = true;
-        if (res.result.length < 6) {
+        if (res.result.length < 10) {
           hasmore = false;
 
         }

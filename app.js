@@ -136,7 +136,7 @@ App({
       })
     })
   },
-  getInfo : function () {
+  getInfo : function () {//获取openid
     var that = this;
     return new Promise((resolve,reject)=>{
       wx.login({
@@ -145,36 +145,23 @@ App({
             console.log(res.code)
             //获取openId
             wx.request({
-              url: 'https://api.weixin.qq.com/sns/jscode2session',
+              url: 'https://m.yp360.cn/api/route.htm?method=user.getOpenid&code='+res.code,
               data: {
-                //小程序唯一标识
-                appid: 'wxa95ec732876e40d0',
-                //小程序的 app secret
-                secret: '8e83d4ef940c0cde6a02c56e421052a4',
-                grant_type: 'authorization_code',
-                js_code: res.code
               },
               method: 'GET',
               header: { 'content-type': 'application/json' },
               success: function (openIdRes) {
-                resolve(openIdRes.data.openid)
-                if (openIdRes.data.openid != null & openIdRes.data.openid != undefined) {
+                if (openIdRes.data.result.openid) {
                   // 有一点需要注意 询问用户 是否授权 那提示 是这API发出的
-                  wx.getUserInfo({
-                    success: function (data) {
-                      // 自定义操作
-                      // 绑定数据，渲染页面
-                      console.log(data)
-                    },
-                    fail: function (failData) {
-                      console.info("用户拒绝授权");
-                    }
-                  });
+                  resolve(openIdRes.data.result.openid)
+                  console.log(openIdRes.data.result.openid)
                 } else {
+                  reject()
                   console.info("获取用户openId失败");
                 }
               },
               fail: function (error) {
+                reject()
                 console.info("获取用户openId失败");
                 console.info(error);
               }
@@ -184,7 +171,44 @@ App({
       });
 
     })
-  } 
+  },
+  getUid(openid, name, portraitImg) {//获取uid
+    return new Promise((resolve, reject) => {
+      const obj = new Object;
+      obj.openid = openid;
+      obj.name = name;
+      obj.portraitImg = portraitImg;
+      post(urls.login, obj).then(res => {
+        console.log(res)
+        resolve(res.result.uid)
+      }).catch((err) => {
+        console.log(err)
+      })
+    })
+
+  },
+  getUserInfo(e){
+    const app=this
+    return new Promise((resolve, reject) => {
+      if (e.detail.userInfo) {//同意了获取用户信息
+        console.log(e.detail.userInfo)
+        app.getInfo().then(res => {
+          console.log(res);
+          app.getUid(res, e.detail.userInfo.nickName, e.detail.userInfo.avatarUrl).then((uid) => {
+            wx.setStorageSync('uid', uid);
+            wx.setStorageSync('userInfo', e.detail.userInfo);
+            resolve() 
+          })
+        }).catch(()=>{
+          resolve()
+        })
+      } else {
+      
+        reject()
+      }
+    })
+  }
+  
 
 
 })

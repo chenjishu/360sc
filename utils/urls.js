@@ -25,5 +25,7 @@ module.exports = {
   cancel: URL +"api/route.htm?method=trade.order.cancel",//取消订单
   login: URL +"api/route.htm?method=user.getLogin",
   expressFee:URL+"api/route.htm?method=trade.getExpressFee",
-  logistics:URL+"api/route.htm?method=trade.order.logistics"
+  logistics:URL+"api/route.htm?method=trade.order.logistics",
+  bannerImg: URL +"api/route.htm?method=cms.news.getInfoAll",
+  continuePay: URL + "api/route.htm?method=trade.continuePay"//继续付款
 };

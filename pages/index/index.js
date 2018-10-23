@@ -16,12 +16,14 @@ Page({
     bestgoods:{}
   },
   onLoad: function (options) {
+    this.bannerImg()
+
     
   },
   onShow(){
+    addHasDown = true;
     this.postHotgood(),
-      this.postBestgood()
-    //app.getInfo()
+    this.postBestgood()
   },
   addShop(e){ 
     const that=this;
@@ -128,8 +130,17 @@ Page({
       url: '../goodDetail/goodDetail?id=' + e.currentTarget.id,
     })
 
-  },
-  
-  
+  }, 
+  bannerImg(){
+    const obj={};
+    const that=this;
+    post(urls.bannerImg, obj).then(res=>{
+      console.log(res)
+      that.setData({
+        bannerimg:res.result[0]
+      })
+
+    })
+  } 
 })
 

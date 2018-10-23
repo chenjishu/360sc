@@ -39,7 +39,7 @@
  <view class="shop">
     <view class="title" style="display:flex;justify-content:space-between">
     <view>订单金额</view>
-    <view>{{price*1+expressFee*1}}元</view>
+    <view>{{all}}元</view>
     </view>
     <view class="shop-list">
         <view class="list">

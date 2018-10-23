@@ -11,9 +11,7 @@ Page({
   },
   onLoad: function (options) {
     console.log(options);
-    //this.getLog(options.orderno)
-    this.getLog('P2018091700076')
-
+    this.getLog(options.orderno)
   },
   getLog(orderNo){
     const that=this;
@@ -35,6 +33,17 @@ Page({
     })
 
 
+  },
+  copy(e){
+    wx.setClipboardData({
+      data:e.currentTarget.dataset.no,
+      success:function(){
+        wx.showToast({
+          title:'复制单号成功'
+        })
+
+      }
+    })
   }
 
 })
