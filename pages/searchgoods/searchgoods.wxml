@@ -1,0 +1,49 @@
+<!--pages/searchgoods/searchgoods.wxml-->
+<form bindsubmit="submitOrder">
+<view class="search-wrapper">
+  <view class="input-wrapper">
+    <input type="text" name="name"></input>
+  </view>
+  <button class="img-wrapper" formType="submit">
+    搜索
+  </button>
+</view>
+</form>
+
+<!--<view class="nav">
+  <view class="box active">按人气排序</view>
+  <view class="box">按销量排序</view>
+</view>-->
+
+
+<view class="goods">
+
+<block wx:for="{{list}}">
+ <view class="good-wrapper" bindtap="toGoodDetail" id="{{item.id}}">
+    <view class="good">
+      <image src="{{imgsrc+item.img}}"></image>
+      <view class="good-name">{{item.goodsName}}</view>
+      <view class="good-in">{{item.goodsLabel}}</view>
+      <view class="do">
+        <view>￥{{item.shopPrice}}</view>
+        <view class="like" data-goodsSn="{{item.goodsSn}}">
+            <image src="/images/like.png" wx:if="{{item.wishStatus==2}}"  catchtap='addShop' data-goodsSn="{{item.goodsSn}}" data-index="{{index}}"></image>
+            <image src="/images/like-red.png" wx:if="{{item.wishStatus==1}}" style="animation: dou .3s  1;" data-goodsSn="{{item.goodsSn}}"></image>
+        </view>
+
+      </view>
+
+
+    </view>
+
+  </view>
+</block>
+
+</view>
+<view style="clear:both;"></view>
+<view wx:if="{{loading==true}}" style="display:block;height:30px;line-height:30px;text-align:center;font-size:14px;color:#999;">
+正在加载更多商品...</view>
+<view wx:if="{{hasmore==true}}" style="display:block;height:30px;line-height:30px;text-align:center;font-size:14px;color:#999;">
+下拉加载</view>
+<view wx:if="{{hasmore==false&&loading==false}}" style="display:block;height:30px;line-height:30px;text-align:center;font-size:14px;color:#999;">
+没有更多数据了</view>

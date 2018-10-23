@@ -1,0 +1,22 @@
+.header{
+    z-index:100;
+    height:45px;display:flex;background: #fff; width:100%;position:fixed;top:0;left:0;right:0;border-bottom:1px solid #eee;
+}
+.header>view{
+    line-height:44px;height:44px;
+    text-align:left;color:#333;font-size:16px;
+    padding:0 30rpx;
+   
+}
+.header>view.active{
+    border-bottom:2px solid #ADCBE1;color:#ADCBE1;
+}
+.good-view{
+background: #fff;margin-top:46px;
+}
+.area-wrapper{
+   padding-left:30rpx;
+}
+.area-wrapper>.area-list{
+    border-bottom:1px solid #ddd;height:45px;line-height:45px;font-size:16px;color:#666;
+}

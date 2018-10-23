@@ -1,0 +1,52 @@
+
+<view a:if="{{list.length>0&&loaded==true?true:false}}">
+
+ 
+  <view class="header">
+    <view class="img-wrapper">
+      <image src="/images/logcar.png" mode="widthFix" />
+    </view>
+    <view class="info">
+      <view>物流公司：
+        <text>{{list[0].logisticsCompany}}</text>
+      </view>
+      <view>
+        物流编号：
+        <text>{{list[0].orderNo}}</text>
+      </view>
+    </view>
+    <view class="copy-wrapper">
+      <view class="copy" bindtap="copy">复制</view>
+    </view>
+  </view>
+
+
+  <view class="detail-wrapper">
+
+     <view style="text-align:center;margin-top:30px;color:#999;font-size:14px;padding-bottom:30px;" wx:if="{{list.length==0?true:false}}">
+       暂无物流信息
+      </view>
+
+    <block wx:for="{{list}}">
+  <view class="detail">
+    <view class="time">
+      <view class="hm">{{item.time[1]}}</view>
+      <view class="date">{{item.time[0]}}</view>
+    </view>
+    <view class="process">
+      <view>
+        {{item.context}}
+      </view>
+    </view>   
+  </view>
+
+    </block>
+
+
+
+
+  </view>
+
+
+</view>
+<view wx:if="{{list.length==0&&loaded==true?true:false}}" style="color:#999;paddin-top:40px;text-align:center;">暂无物流信息~</view>

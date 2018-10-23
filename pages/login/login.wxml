@@ -1,0 +1,20 @@
+<!--<form bindsubmit="submitLogin">
+  <view class="con">
+    <view class="header">
+      <image src="/images/log.png" class="logo"></image>
+    </view>
+    <view class="main">
+      <view class="mobile">
+        <image src="/images/mobile.png"></image>
+        <input placeholder="手机号" bindinput="bindChangePhoneNumber" name="mobile" maxlength="11" value="{{phoneNumber}}" />
+      </view>
+      <view class="mobile">
+        <image src="/images/login.png"></image>
+        <input placeholder="密码" name="password"  bindinput="bindChangePassword" password="true" />
+      </view>
+      <button formType="submit">登录</button>
+    </view>
+  </view>
+</form>-->
+<button bindtap='login'>点击登录小程序</button>
+

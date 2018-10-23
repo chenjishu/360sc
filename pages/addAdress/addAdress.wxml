@@ -1,0 +1,47 @@
+<!--pages/addAdress/addAdress.wxml-->
+
+
+
+
+
+
+
+
+
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="list-wrapper" a:if="{{idx==0?true:false}}">
+    <view class="list2">
+    <view> 姓名</view>
+    <view  class="fill">
+   <input placeholder="请输入姓名" auto-focus  name="name"/>
+    </view>
+  </view>
+   <view class="list2">
+    <view> 联系方式</view>
+    <view  class="fill">
+   <input type="number"  placeholder="联系方式 " auto-focus name="phoneNumber" />
+    </view>
+  </view>
+  <view class="list" onTap="selectArea">
+    <view> 取件地区</view>
+    <view  class="select" bindtap='toAdress'>
+   {{myArea||"请选择取件地址"}}
+    <image src="/images/arrow-right.png" mode="widthFix" style="width:20px;"/>
+    </view>
+  </view>
+  <view class="list">
+    <view > 详细地址</view>
+    <view class="fill"  style="flex:1">
+      <textarea style="width:100%"  placeholder="街道 街道 街道 " name="address" />
+    </view>
+  </view>
+
+
+  </view>
+
+<view class="bot">
+  <button class="btn1" bindtap="back">删除</button>
+  <button class="btn2" formType="submit">保存</button>
+
+</view>
+  </form>

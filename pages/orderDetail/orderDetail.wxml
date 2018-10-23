@@ -1,0 +1,66 @@
+<view class="order-detail">
+  <view class="order-title">订单信息</view>
+  <view class="order-list">
+    <view>
+      <view class="left">下单日期</view>
+      <view class="right">{{detail.createTime}}</view>
+    </view>
+    <view>
+      <view class="left">订单编号</view>
+      <view class="right">{{detail.orderNo}}</view>
+    </view>
+    <view>
+      <view class="left">收货地址</view>
+      <view class="right">
+        <view>{{detail.receiverPhone+' '}}{{detail.receiverName+' '}}收</view>
+        {{detail.receiverState+' '+detail.receiverCity+' '+detail.receiverDistrict+' '+detail.receiverAddress}}
+      </view>
+    </view>
+  </view>
+  <view class="order-title">商品信息</view>
+  <view class="order-list">
+    <block wx:for="{{detail.orderItemList}}">
+      <view>
+        <view class="left" style="width:100px;">
+         <image src="{{imgSrc+item.photoMain}}" style="width:80px;" mode="widthFix"></image>
+        </view>
+        <view class="right" style="text-align:left">
+        <view>
+          <text style="font-size:16px;">
+           {{item.goodsTitle}}
+           </text>
+        </view>
+          <view>
+            {{item.num}}*
+            <text style="color:red;">{{item.price}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+    <view class="order-title">订单金额</view>
+  <view class="order-list">
+    <view>
+      <view class="left">商品金额</view>
+      <view class="right">{{detail.totalFee}}</view>
+    </view>
+    <view>
+      <view class="left">订单编号</view>
+      <view class="right">{{detail.id}}</view>
+    </view>
+    <view>
+      <view class="left">收货地址</view>
+      <view class="right">
+        <view>{{detail.receiverPhone+' '}}{{detail.receiverName+' ' }}收</view>
+        {{detail.receiverState+' '+detail.receiverCity+' '+detail.receiverDistrict+' '+detail.receiverAddress}}
+      </view>
+    </view>
+  </view>                                       
+</view>
+<view style="height:50px;"></view>
+<view class="bot">
+<view bindtap='confirm'  data-id="{{detail.id}}" wx:if="{{detail.status==='2'}}">确认收货</view>
+<view bindtap="cancelOrder" data-id="{{detail.id}}" wx:if="{{detail.status==='0'||detail.status==='1'}}">取消订单</view>
+<view bindtap="logistics" data-no="{{detail.orderNo}}" wx:if="{{detail.status==='2'}}">查看物流</view>
+
+</view>

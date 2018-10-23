@@ -1,0 +1,144 @@
+<form bindsubmit="submitReg">
+  <view class="con">
+    <view class="header">
+      <image src="/images/log.png" class="logo"></image>
+    </view>
+    <view class="main">
+
+      <view class="mobile">
+        <image src="/images/mobile.png"></image>
+        <input placeholder="昵称" bindinput="bindChangePhoneNumber" name="nick" maxlength="11" bindinput="nick" />
+      </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <view class="mobile">
+        <image src="/images/mobile.png"></image>
+        <input placeholder="手机号" type="number" bindinput="bindChangePhoneNumber" name="mobile" maxlength="11" value="{{phoneNumber}}" type="number" />
+      </view>
+      <view class="mobile">
+        <image src="/images/mobile.png"></image>
+        <input placeholder="密码" name="password" maxlength="12" password="true" bindinput="changepassword" />
+      </view>
+      <view class="mobile">
+        <image src="/images/mobile.png"></image>
+        <input placeholder="确认密码" maxlength="12" bindinput="cofirmpassword" password="true" />
+      </view>
+
+
+
+
+     <view class="select-wrapper">
+     选择性别:
+             <view class="section">
+          <picker bindchange="bindsexChange" value="{{index}}" range="{{arr}}">
+            <view class="picker" style="height:20px;border:1px solid #ccc;text-align:center;">
+              {{arr[sexIndex]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+
+           <view class="select-wrapper">
+     选择年龄:
+             <view class="section">
+          <picker bindchange="bindageChange" value="{{index}}" range="{{ageArr}}">
+            <view class="picker" style="height:20px;border:1px solid #ccc;text-align:center;">
+              {{ageArr[ageIndex]}}
+            </view>
+          </picker>
+        </view>
+      </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <button disabled="{{loginFormOK==false}}" formType="submit">点击注册</button>
+    </view>
+  </view>
+</form>
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">
+  <form bindsubmit="verifyCode">
+    <view class="content">
+      <input placeholder="请输入右侧图片验证码" name="verifyCode" maxlength="4" />
+      <image src="{{verifyCodeURL}}" bindtap="loadGenerateVerifyCode"></image>
+    </view>
+    <button class="submit" formType="submit">提交</button>
+    <view class="no" bindtap="powerDrawer" data-statu="close">×</view>
+  </form>
+
+
+
+     
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</view>

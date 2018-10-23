@@ -1,0 +1,21 @@
+<view class="search-wrapper">
+
+
+</view>
+
+<view class="kind clear">
+  <view class="title"> 热门分类</view>
+  <view class="wrapper">
+
+  <block wx:for="{{list}}">
+    <view class="box" data-catNo="{{item.catNo}}" ontap="toList">
+    <image src="{{imgsrc+item.catImg}}" mode="widthFix"></image>
+    <view>{{item.catName}}</view>
+  </view></block>
+  
+
+
+  </view>
+  
+
+</view>

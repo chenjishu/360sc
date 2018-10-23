@@ -1,0 +1,16 @@
+
+.kind{}
+.kind>.title{
+  text-align:center;margin-top:20px;font-size:16px;
+
+}
+.kind>.wrapper{
+  margin-top:20px;
+}
+.kind .box{
+  width:33.33%;height:100px;float:left;text-align:center;margin-top:10px;font-size:14px;
+}
+.kind .box>image{
+  width:50%;height:50px;
+}
+

@@ -1,0 +1,31 @@
+
+<view wx:if="{{list.length==0}}" style="text-align:center;padding:60px 0;background:#fff;">
+      <view style="text-align:center;color；#999;font-size:12px">还没有地址哦，快去添加吧~</view>
+</view>
+<block wx:for="{{list}}" wx:key="address">
+<view class="box">
+<view bindtap='update' data-id="{{item.id}}">
+  <view class="left">
+    <view class="name">{{item.receiver}}{{item.mobile}}</view>
+    <view class="adr">
+      {{item.province}} {{item.city}} {{item.district}} {{item.address}}
+    </view>
+
+  </view>
+  <view class="center " data-index="{{index}}" id="{{item.id}}" catchtap="removeAddress">
+    <image  src="/images/del.png" style="width:20px;height:20px;"></image>
+  </view>
+  <view class="right">
+  <image wx:if="{{item.isDefault=='Y'}}" src="/images/yes.png"  style="width:20px;height:20px;"></image></view>
+
+</view>
+
+</view>
+
+
+</block>
+
+
+
+
+<view class="btn" bindtap="turnToAdd">新增收货地址</view>

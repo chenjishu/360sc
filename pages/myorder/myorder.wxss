@@ -1,0 +1,131 @@
+/* pages/more/myorder/myorder.wxss */
+page{
+  background: #eee;
+}
+
+.con {
+  font-size: 26rpx;
+  width: 100%;
+}
+.nav{
+  display:flex;position:fixed;top:0;left:0;right:0;background: #fff;
+}
+.nav>view{
+  flex:1;height:40px;line-height:40px;text-align:center;font-size:14px;color:#333;
+}
+.nav>view>view{
+  display:inline-block;
+}
+.nav>view.active{
+  border-bottom:2px solid #ADCBE1;color:#ADCBE1;
+}
+.order-list {
+  background: white;
+  width: 100%;
+  margin-top:10px;
+  border-radius:4px 4px 0 0;
+  overflow: hidden;
+}
+
+.first-bar {
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 1px solid #eee;
+}
+
+.time {
+  margin-left: 30rpx;
+}
+
+.fin {
+  float: right;
+  margin-right: 30rpx;
+}
+
+.second-bar {
+  padding-top: 15rpx;
+  
+}
+.second-bar::after{
+  display:table;
+  content:"";
+  clear:both;
+}
+
+.order-list {
+  margin-top: 5px;
+}
+
+
+
+.item {
+  float: left;
+  width: 400rpx;
+  margin-left: 10rpx;
+}
+
+.order-num {
+  line-height: 40rpx;
+}
+
+.money {
+  line-height: 40rpx;
+}
+
+.shou {
+  display: inline-block;
+  text-align: center;
+  line-height: 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  color: white;
+  float:left;
+  margin-left: 30rpx;
+}
+.shou>image{
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.xiu {
+  display: inline-block;
+  text-align: center;
+  line-height: 80rpx;
+  width: 80rpx;
+  height: 80rpx;
+  background: #ff9c00;
+  font-size: 35rpx;
+  font-weight: bold;
+  color: white;
+  float:left;
+  border-radius: 10rpx;
+  margin-left: 30rpx;
+}
+
+.noorder {
+  width: 500rpx;
+  height: 500rpx;
+  margin: 200rpx 0 0 125rpx;
+}
+
+.send{
+  float:right;width:200rpx;height:100rpx;
+}
+
+.send>button{
+  width:60%;height:60rpx;font-size:24rpx;background:#ff9c00;color:white;line-height:60rpx;margin-top:15rpx;
+}
+.btn-wrapper{
+  padding:10px;
+}
+
+.btn-wrapper::after{
+  display:table;
+  content:"";
+  clear:both;
+}
+.btn-wrapper>view{
+  width:70px;float:right;height:20px;border-radius:10px;border:1px solid #999;text-align:center;line-height: 20px;color:#999;margin-left:10px;
+}

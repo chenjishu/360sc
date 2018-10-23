@@ -1,0 +1,32 @@
+<!--index.wxml-->
+<view class="con" wx:if="{{!needlogin}}">
+  <view class="userinfo">
+   
+    
+    
+      <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+   
+  </view>
+   <view class="my">
+    <view class="my-item flex-wrp" bindtap='myorder'>
+      <view class="myitem-icon flex-item" >
+        <image src="../../images/dingdan.png"></image>
+      </view>
+      <view class="myitem-name flex-item" bindtap="myorder">
+        <text>我的订单</text>
+      </view>
+    </view>
+    <view class="my-item flex-wrp">
+      <view class="myitem-icon flex-item" >
+        <image src="../../images/kefu.png"></image>
+      </view>
+      <view class="myitem-name flex-item" bindtap="makePhoneCall">
+        <text>联系客服</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="need-login" wx:if="{{needlogin}}">
+<button bindtap="toLogin">登陆后可查看个人信息</button>
+</view>

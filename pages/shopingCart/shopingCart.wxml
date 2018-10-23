@@ -1,0 +1,57 @@
+
+<view wx:if="{{loaded&&!needLogin&&list.length!==0}}">
+<scroll-view scroll-y="{{true}}">
+<view class="shopcart">
+  <view class="wrapper">
+  <block wx:for="{{list}}" wx:key="{{list}}">
+   <view data-index="{{index}}" class="sel-good" bindtouchstart="touchS" bindtouchend="touchE" style="right:{{item.right}}px;">
+    <view bindtap='select' data-index="{{index}}" class="option-wrapper">
+      <view  class="{{item.selected?'selected':''}} option" style="position:relative;">
+       <image wx:if="{{item.selected}}" src="/images/selected.png" style="width:15px;height:15px;position:absolute;top:0;left:0"></image>
+       </view>
+    </view>
+    <view class="good-img">
+      <image src="{{imgSrc+item.img}}">
+      </image>
+    </view>
+    <view class="good-con">
+      <view class="title">{{item.cname}}</view>
+      <view class="intro">{{item.goodsIntroduce}}</view>
+      <view class="box">
+        <text class="pri">{{item.shopPrice}}</text>
+        <view class="control">
+          <view class="stepper">
+            <!-- 减号 -->
+            <text class="{{minusStatus}}" bindtap="bindMinus" data-index="{{index}}" data-goodssn="{{item.goodsSn}}">-</text>
+            <!-- 数值 -->
+            <input type="number" data-index="{{index}}" bindchange="bindManual" value="{{item.quantity}}"  data-goodssn="{{item.goodsSn}}"/>
+            <!-- 加号 -->
+            <text class="normal" bindtap="bindPlus" data-index="{{index}}"  data-goodssn="{{item.goodsSn}}">+</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="del" bindtap="delect" data-index="{{index}}" data-id="{{item.id}}">删除</view>
+  </view>
+  </block>
+</view>
+</view>
+</scroll-view>
+<view class="bot">
+  <view class="option-wrapper" bindtap='selectAll'>
+    <view class="{{selectAll?'selected':''}} option" style="position:relative;">
+      <image wx:if="{{selectAll}}" src="/images/selected.png" style="display:block;width:15px;height:15px;position:absolute;top:0;left:0"></image>
+    </view>
+    <text>全选</text>
+  </view>
+  <view class="pri">合计：{{price}}</view>
+  <view class="btn" bindtap="buy">结算</view>
+</view>
+</view>
+<view class="need-login" wx:if="{{needLogin}}">
+<button bindtap="toLogin">登陆后可查看购物车</button>
+</view>
+<view class="nogoods"  wx:if="{{list.length==0&&loaded&&!needLogin}}">
+  <view>当前购物车内暂无商品</view>
+  <button bindtap="toIndex">去选购商品</button>
+</view>

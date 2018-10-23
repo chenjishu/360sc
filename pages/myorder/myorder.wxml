@@ -1,0 +1,60 @@
+<!-- pages/more/myorder/myorder.wxml -->
+<view class="con">
+  <image src="/images/noorder.png" class="noorder" wx:if="{{isOrderListEmpty==true}}"></image>
+  <view class="nav"  wx:if="{{!noOne}}">
+    <view data-status=""  bindtap="selectSta"  class="{{status===''?'active':''}}">全部</view>
+    <view data-status="0" bindtap="selectSta" class="{{status==='0'?'active':''}}">待付款</view>
+    <view data-status="1" bindtap="selectSta" class="{{status==='1'?'active':''}}">待发货</view>
+    <view data-status="2" bindtap="selectSta" class="{{status==='2'?'active':''}}">待收货</view>
+    <view data-status="4" bindtap="selectSta" class="{{status==='4'?'active':''}}">已完成</view>
+  </view>
+
+  <scroll-view style="position:fixed;top:45px;left:0;right:0;bottom:0;" scroll-y="{{true}}" bindscrolltolower="getMore">
+
+
+    <block wx:for="{{list}}" wx:key="order-list">
+      <view class="order" bindtap='toDetail' data-orderid="{{item.orderNo}}">
+        <view class="order-list" bindtap="orderitem" data-id="{{order.id}}" data-ordertype="{{order.orderType}}">
+          <view class="first-bar">
+            <text class="time">{{item.createTime}}</text>
+            <text class="fin" wx:if="{{item.status==0}}">待付款</text>
+            <text class="fin" wx:if="{{item.status==1}}">待发货</text>
+            <text class="fin" wx:if="{{item.status==2}}">已发货</text>
+            <text class="fin" wx:if="{{item.status==3}}">待评价</text>
+            <text class="fin" wx:if="{{item.status==4}}">已完成</text>
+            <text class="fin" wx:if="{{item.status==5}}">退货</text>
+            <text class="fin" wx:if="{{item.status==6}}">取消</text>
+            <text class="fin" wx:if="{{item.status==7}}">已改价</text>
+          </view>
+          <block wx:for="{{item.orderItemList}}" wx:for-index="idx" wx:for-item="itemG" wx:key="good-list">
+            <view class="second-bar">
+              <view class="shou">
+                <image src="{{imgSrc+itemG.photoMain}}"></image>
+              </view>
+              <view class="item">
+                <view class="order-num">{{itemG.goodsTitle}}</view>
+                <view class="money">
+                  金额：
+                  <text>￥{{itemG.price}}</text>
+                </view>
+              </view>
+              <view class="send">
+                <button catchtap="send" wx:if="{{order.repairType==3||order.repairType==2}}" data-inepressNo="{{order.inExpressNo}}" data-inexpressCompany="{{order.inExpressCompany}}" data-orderId="{{order.id}}">发货</button>
+              </view>
+            </view>
+          </block>
+          <view class="btn-wrapper">
+            <view catchtap='cancelOrder' data-id="{{item.id}}" wx:if="{{item.status==='0'||item.status==='1'}}">取消订单</view>
+            <view catchtap='confirm' data-id="{{item.id}}" wx:if="{{item.status==='2'}}">确认收货</view>
+             <view catchtap='logistics' data-no="{{item.orderNo}}" wx:if="{{item.status==='2'}}">查看物流</view>
+          </view>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{isLoading}}" style="text-align:center;padding:20px 0">
+      <image src="/images/loading.gif" mode="widthFix" style="width:20px"></image>
+    </view>
+    
+    <view style="padding:20px;color:#999;text-align:center;margin-top:60px;" wx:if="{{isLoaded&&list.length==0}}">暂时还没有订单哦</view>
+  </scroll-view>
+</view>

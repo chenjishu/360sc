@@ -1,0 +1,138 @@
+.sel-good{
+  display:flex;border-bottom:1px solid #eee;height:100px;position:relative;transition:all .3s;
+}
+.sel-good.selected .option{
+  background:#ADCBE1;
+}
+.sel-good>.option-wrapper{
+  width:30px;text-align: center;
+}
+.sel-good>.option-wrapper>.option{
+  width:15px;height:15px;border:1px solid #ADCBE1;border-radius:50%;display:inline-block;margin-top:30px;
+}
+
+.sel-good>.good-img{
+  width:100px;text-align: right;
+}
+.sel-good>.good-img>image{
+  width:75px;height:75px;
+}
+.sel-good>.good-con{
+  flex:1;line-height:25px;padding:10px 10px;
+}
+.sel-good>.good-con>.title{
+  font-size:20px;height:25px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width:calc(100vw - 150px);
+}
+.sel-good>.good-con>.intro{
+  font-size:10px;color:#999;height:25px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width:calc(100vw - 150px);
+}
+.sel-good>.good-con>.box:after{
+  display:table;
+  content:"";
+  clear:both;
+
+}
+.sel-good>.good-con>.box>.pri{
+  float:left;line-height:26px;
+}
+.sel-good>.good-con>.box>.control{
+  float:right;
+}
+scroll-view{
+  position:fixed;top:0px;right:0px;left:0px;bottom:51px;
+}
+.stepper {  
+    width: 92px;  
+    height: 26px;  
+    /*给主容器设一个边框*/  
+    border: 1px solid #ccc;  
+    border-radius: 3px;  
+    margin:0 auto;  
+}  
+  
+/*加号和减号*/  
+.stepper text {  
+    width: 25px;  
+    line-height: 26px;  
+    text-align: center;  
+    float: left;  
+}  
+  
+/*数值*/  
+.stepper input {  
+    width: 40px;  
+    height: 26px;  
+    float: left;  
+    margin: 0 auto;  
+    text-align: center;  
+    font-size: 12px;  
+    /*给中间的input设置左右边框即可*/  
+    border-left: 1px solid #ccc;  
+    border-right: 1px solid #ccc;  
+}  
+  
+/*普通样式*/  
+.stepper .normal{  
+    color: black;  
+}  
+  
+/*禁用样式*/  
+.stepper .disabled{  
+    color: #ccc;  
+}  
+
+.bot{
+  position:fixed;height:50px;bottom:0;left:0;right:0;display:flex;border-top:1px solid #eee;background:#fff;z-index:9;
+}
+.bot>.option-wrapper{
+   width:30px;display:inline-block;flex:1;padding-left:7.5px;text-align:left;font-size:18px;line-height:50px;
+}
+.bot>.option-wrapper>text{
+  margin-left:10px;
+}
+.bot>.option-wrapper>.option{
+  width:15px;height:15px;border:1px solid #ADCBE1;border-radius:50%;display:inline-block;margin-top:17.5px;
+}
+.bot>.pri{line-height:50px;text-align:right;flex:1;font-size:12px;padding-right:15px;}
+.bot>.btn{
+  width:100px;height:50px;background:#ADCBE1;color:#fff;line-height:50px;text-align:center;flex:1;
+}
+
+
+
+.wrapper{
+
+   width: 100%;
+  display: flex;
+  flex-direction: column;overflow: hidden;
+}
+.wrapper .del{
+  width:50px;height:100px;background:#ADCBE1;position:absolute;top:0;right:-50px;color:#fff;font-size:12px;line-height: 100px;text-align:center;border-top:1px solide #999;box-sizing: border-box;
+}
+
+
+
+.need-login{
+  display:flex;justify-content: center;align-items: center;flex-direction: column;
+  position:fixed;top:0;right:0;
+  left:0;
+  bottom:0;
+}
+.nogoods{
+   display:flex;justify-content: center;align-items: center;flex-direction: column;
+      position:fixed;top:0;right:0;
+  left:0;
+  bottom:0;
+}
+.nogoods>view{
+   text-align:center;margin-bottom:30px;font-size:16px;color:#333;
+}
+button {
+  width: 600rpx;
+  background: #ADCBE1;
+  color:#fff;
+}
+.option.selected{
+ 
+  
+}

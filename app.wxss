@@ -1,0 +1,22 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+page{
+  font-family: Microsoft Yahei;
+}
+@keyframes dou {
+  0% {
+    transform: rotate(9deg) scale(1.5);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}

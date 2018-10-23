@@ -1,0 +1,7 @@
+<view style='text-align:center;padding-top:60px;'>
+ <image src="/images/order-success.png" mode="widthFix" style="width:100px;"></image>
+
+ <view  style='text-align:center;margin-top:20px;'>下单成功</view>
+ <button bindtap="toIndex" style="width:70%;background:#ADCBE1;margin-top:50px;color:#fff;">返回首页</button>
+
+</view>

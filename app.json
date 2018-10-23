@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/myorder/myorder",
+    "pages/goodDetail/goodDetail",
+    "pages/logs/logs",
+    "pages/kinds/kinds",
+    "pages/shopingCart/shopingCart",
+    "pages/test/test",
+    "pages/aboutMe/aboutMe",
+    "pages/settlement/settlement",
+    "pages/selectAdress/selectAdress",
+    "pages/addAdress/addAdress",
+    "pages/searchgoods/searchgoods",
+    "pages/login/login",
+    "pages/register/register",
+    "pages/selectArea/selectArea",
+    "pages/orderDetail/orderDetail",
+    "pages/authorize/authorize",
+    "pages/success/success",
+    "pages/logistics/logistics"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ADCBE1",
+    "navigationBarTitleText": "优品360",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#626567",
+    "selectedColor": "#ADCBE1",
+    "backgroundColor": "#FBFBFB",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home_tab_home_nor.png",
+        "selectedIconPath": "images/home_tab_home_sel.png"
+      },
+      {
+        "pagePath": "pages/kinds/kinds",
+        "text": "分类",
+        "iconPath": "images/home_tab_cate_nor.png",
+        "selectedIconPath": "images/home_tab_cate_sle.png"
+      },
+      {
+        "pagePath": "pages/shopingCart/shopingCart",
+        "text": "购物车",
+        "iconPath": "images/home_tab_list_nor.png",
+        "selectedIconPath": "images/home_tab_list_sel.png"
+      },
+      {
+        "pagePath": "pages/aboutMe/aboutMe",
+        "text": "我的",
+        "iconPath": "images/home_tab_mine_nor.png",
+        "selectedIconPath": "images/home_tab_mine_sel.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

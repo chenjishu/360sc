@@ -1,0 +1,59 @@
+
+page{
+  background: #f5f5f5;
+}
+.wrapper{
+display:flex;border-bottom:1px solid #eee;
+}
+.wrapper .name{
+  width:80px;font-size:14px;height:40px;line-height:40px;
+}
+.wrapper  input{
+  flex:1;height:40px;font-size:14px;
+}
+.box{
+  margin:0 auto;background: #fff;padding:0 10px;
+}
+.bot{
+  position:fixed;bottom:0;left:0;height:50px;right:0;display:flex;
+}
+.bot>button{
+  flex:1;text-align:center;line-height:50px;background: #fff;color:red;border:0;border-radius: 0;
+}
+.bot>button.btn2{
+  background: #333;color:#fff;
+}
+
+.list-wrapper{
+    margin-top:10px;background: #fff;padding-left:30rpx;font-size:16px;
+     border-bottom:1px solid #ddd;
+    border-top:1px solid #ddd;font-size:16px;
+}
+.list-wrapper>.list{
+    display:flex; border-bottom:1px solid #ddd;
+    padding-right:30rpx;padding:15px 0;
+}
+.list-wrapper>.list>view:first-child{
+    width:85px;
+}
+.list-wrapper>.list>view.select{
+    flex:1;text-align:right;color:#999;position:relative;padding-right:30px;
+}
+.list-wrapper>.list2{
+    line-height:45px;border-bottom:1px solid #ddd;display:flex;
+}
+.list-wrapper>.list2 input{
+  height:45px;
+}
+.list-wrapper>.list2>view:first-child{
+    width:85px;
+}
+.list-wrapper>.list>view.select>image{
+margin-left:15px;right:0;top:50%;margin-top:-10px;position:absolute;
+}
+.list-wrapper>.list>view.fill>textarea{
+    line-height:1;
+}
+.list-wrapper>.list:last-child{
+    border-bottom: none; vertical-align: middle;
+}

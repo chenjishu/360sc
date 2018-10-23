@@ -1,0 +1,26 @@
+<view>
+  <view class="header">
+    <view wx:if="{{length>0?true:false}}" class="{{currentIndex==0?'active':''}}" data-index="0" bindtap="changeIndex">{{myArea.pro}}</view>
+    <view wx:if="{{length>1?true:false}}" class="{{currentIndex==1?'active':''}}" data-index="1" bindtap="changeIndex">{{myArea.city}}</view>
+    <view wx:if="{{length>2?true:false}}" class="{{currentIndex==2?'active':''}}" data-index="2" v="changeIndex">{{myArea.area}}</view>
+    <view wx:if="{{length<3?true:false}}" class="{{length<3&issel?'active':''}}">请选择</view>
+  </view>
+  <scroll-view class="good-view">
+    <view class="area-wrapper" wx:if="{{currentIndex==0?true:false}}">
+      <block wx:for="{{prolist}}">
+        <view class="area-list" bindtap="selectPro" data-id="{{item.id}}" data-pro="{{item.province}}">{{item.province}}</view>
+      </block>
+    </view>
+    <view class="area-wrapper" wx:if="{{currentIndex==1?true:false}}">
+      <block wx:for="{{citylist}}">
+        <view class="area-list" bindtap="selectCity" data-id="{{item.id}}" data-city="{{item.city}}">{{item.city}}</view>
+      </block>
+    </view>
+
+    <view class="area-wrapper" wx:if="{{currentIndex==2?true:false}}">
+      <block wx:for="{{arealist}}">
+        <view class="area-list" bindtap="selectArea" data-area="{{item.district}}">{{item.district}}</view>
+      </block>
+    </view>
+  </scroll-view>
+</view>

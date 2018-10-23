@@ -1,0 +1,53 @@
+
+.wrapper{
+  background: #eee;padding-top:10px;
+}
+.shop{
+font-size:14px;background: #fff;
+}
+.title{
+  padding:5px 10px;font-size:14px;height:30px;line-height:30px;border-bottom:1px solid #eee;
+}
+.shop>.shop-list{
+  padding:5px 10px;
+}
+.shop>.shop-list>.list{ 
+  height: 30px;line-height: 30px;vertical-align: middle;border-bottom:1px solid #eee;display:flex;align-items: center;padding:10px 0;
+}
+.shop>.shop-list>.list:last-child{
+  border-bottom:0;
+}
+.shop>.shop-list>.list image{
+  width:20px;height:20px;margin-right:5px;
+}
+.shop>.shop-list>.list>.good-name{
+  width:500rpx;
+}
+.shop>.shop-list>.list .pri{
+  flex:1;text-align:right;
+}
+.adress{
+  font-size:14px;background: #fff;margin-top:5px;margin-bottom:5px;
+}
+
+.adress .adress-box{
+flex:1;padding:10px 0 10px 10px;
+}
+.adress .arrow{
+  width:30px;text-align:center;align-items: center;display:flex;
+}
+.adress .arrow image{
+  width:20px;height:20px;vertical-align: middle;
+}
+.adress .box{
+display:flex;
+}
+.peo{
+   padding:2px 0;margin-top:3px;
+}
+.adr{
+  padding:2px 0;
+}
+.btn{
+  position:fixed;height:50px;line-height:50px;text-align:center;background: #1CAB19;color:#fff;font-size:16px;left:0;bottom:0;right:0;
+}

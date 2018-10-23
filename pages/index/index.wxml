@@ -1,0 +1,60 @@
+<view class="search-wrapper" bindtap='togood'>
+  <view>搜索商品</view>
+
+</view>
+<swiper indicator-dots="true" circular="ture" autoplay="true" interval="3000" duration="500" class="swiper">
+
+  <swiper-item class="swiper">
+    <image src="/images/a1.png" class="slide-image swiper" ></image>
+  </swiper-item>
+  
+  <swiper-item class="swiper">
+    <image src="/images/a1.png" class="slide-image swiper" ></image>
+  </swiper-item>
+</swiper>
+<view class="selection">
+  <view class="title">精选商品</view>
+  <block wx:for="{{bestgoods}}" wx:key="bestgoods">
+
+    <view class="box"  bindtap="toGoodDetail" id="{{item.id}}">
+    <view style="text-align:center">
+     <image src="{{imgsrc+item.img}}" mode="widthFix"></image>
+    </view>
+     
+      <view class="good-name">{{item.goodsName}}</view>
+      <view class="good-intro">{{item.goodsIntroduce}}</view>
+      <view class="add-pri">
+        <view class="good-pri">￥{{item.shopPrice}}</view>
+        <view class="add" >
+          <image src="/images/add.png" catchtap='addShop' data-goodsSn="{{item.goodsSn}}" wx:if="{{item.wishStatus==2}}"></image>
+           <image src="/images/add-red.png" catchtap='removeShop' style="animation: dou 1s  1;" data-goodsSn="{{item.goodsSn}}" data-id="{{item.id}}" wx:if="{{item.wishStatus==1}}"></image>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+
+<view class="hot clear">
+  <view class="title">热卖单品</view>
+  <view class="goods">
+
+    <block wx:for="{{hotgoods}}" wx:key="hotgood">
+
+      <view class="good-wrapper">
+        <view class="good" bindtap="toGoodDetail" id="{{item.id}}">
+          <image src="{{imgsrc+item.img}}"></image>
+          <view class="good-name">{{item.goodsName}}</view>
+          <view class="good-in">{{item.goodsLabel}}</view>
+          <view class="do">
+            <view>￥{{item.shopPrice}}</view>
+            <view class="like" catchtap='addShop' data-goodsSn="{{item.goodsSn}}">
+              <image src="/images/like.png" wx:if="{{item.wishStatus==2}}"  catchtap='addShop' data-goodsSn="{{item.goodsSn}}"></image>
+               <image src="/images/like-red.png" wx:if="{{item.wishStatus==1}}" style="animation: dou 1s  1;" catchtap='removeShop' data-goodsSn="{{item.goodsSn}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+
+    </block>
+  </view>
+</view>

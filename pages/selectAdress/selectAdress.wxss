@@ -1,0 +1,33 @@
+page{
+
+background-color:"#eee";
+}
+.box{
+  padding:0 10px;font-size:14px;background: #fff;margin-top:10px;
+}
+.box>view{
+ border-bottom:1px solid #eee;display:flex;align-items: center;padding:10px 0;
+}
+.box>view>.left{
+  width:500rpx;
+}
+.box .center{
+  flex:1;text-align:center;
+}
+.box .right{
+  flex:1;text-align:center;
+}
+.adr{
+  margin-top:5px;
+
+  flex:1;
+}
+.box>.right{
+  flex:1;text-align:center;
+}
+.adr{
+  margin-top:5px;
+}
+.btn{
+  position:fixed;bottom:0;left:0;right:0;height:50px;background: red;text-align: center;line-height:50px;color:#fff;
+}

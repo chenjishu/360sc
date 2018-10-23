@@ -1,0 +1,43 @@
+.innerWrap {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 120rpx;
+  line-height: 1;
+}
+
+.listItem {
+  height: 80rpx;
+  font-size: 14px;
+  background-color: #ddd;
+  width: 100%;
+  padding: 24rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border-bottom: 1px solid #999;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.listViewWrap {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.delete {
+  position: absolute;
+  display: flex;
+  width: 180rpx;
+  height: 80rpx;
+  color: #fff;
+  align-items: center;
+  top: 0;
+  justify-content: center;
+  background-color: red;
+  right: -180rpx;
+}
