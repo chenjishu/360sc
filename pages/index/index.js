@@ -16,9 +16,8 @@ Page({
     bestgoods:{}
   },
   onLoad: function (options) {
-    this.bannerImg()
-
-    
+    this.bannerImg();
+   // this.getnews()
   },
   onShow(){
     addHasDown = true;
@@ -32,8 +31,8 @@ Page({
       return;
     }
     addHasDown = false;
-    console.log(e)
-    console.log(e.currentTarget.dataset.goodssn)
+   // console.log(e)
+   // console.log(e.currentTarget.dataset.goodssn)
     app.addShop(e.currentTarget.dataset.goodssn, 1).then(()=>{
       that.onShow()
       addHasDown = true;
@@ -72,7 +71,7 @@ Page({
     })
   },
   bindQueTap: function (e) {
-    console.log(1)
+   // console.log(1)
     if (util.isRepeatClick()) return//判断是否为重复点击
     var that = this;
     wx.navigateTo({
@@ -81,14 +80,14 @@ Page({
   },
   togood() {
     //var that=this;
-    console.log(1)
+    //console.log(1)
     wx.navigateTo({
       url: '../searchgoods/searchgoods',
     })
   },
   postHotgood: function () {
     app.getsto().then(res=>{
-      console.log(res)
+      //console.log(res)
 
       var obj = new Object;
       obj.currentPage = 1;
@@ -97,12 +96,12 @@ Page({
         obj.uid=res;
       };
       post(urls.hotGood, obj).then((res) => {
-        console.log(res)
+       // console.log(res)
         this.setData({
           imgsrc: res.imgSrc,
           hotgoods: res.result
         })
-        console.log(this.data.hotgoods)
+       // console.log(this.data.hotgoods)
       })
     })
   },
@@ -119,8 +118,8 @@ Page({
           imgsrc: res.imgSrc,
           bestgoods: res.result
         })
-        console.log('哈哈哈哈')
-        console.log(this.data.bestgoods)
+        //console.log('哈哈哈哈')
+        //console.log(this.data.bestgoods)
       })
       })
 
@@ -135,12 +134,23 @@ Page({
     const obj={};
     const that=this;
     post(urls.bannerImg, obj).then(res=>{
-      console.log(res)
+      //console.log(res)
       that.setData({
         bannerimg:res.result[0]
       })
 
     })
-  } 
+  },
+  getnews(){
+    console.error('--------')
+    post(urls.article).then(res=>{
+      console.log(res)
+    })
+  },
+  article(){
+    wx.navigateTo({
+      url: '../article/article?index='+'1',
+    })
+  }
 })
 

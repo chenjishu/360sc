@@ -27,5 +27,6 @@ module.exports = {
   expressFee:URL+"api/route.htm?method=trade.getExpressFee",
   logistics:URL+"api/route.htm?method=trade.order.logistics",
   bannerImg: URL +"api/route.htm?method=cms.news.getInfoAll",
-  continuePay: URL + "api/route.htm?method=trade.continuePay"//继续付款
+  continuePay: URL + "api/route.htm?method=trade.continuePay",//继续付款
+  article:URL+"/api/route.htm?method=article.list"
 };

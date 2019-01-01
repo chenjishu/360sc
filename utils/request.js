@@ -1,10 +1,10 @@
- export default function post(url, data) {
+ export default function post(url, data={}) {
   var promise = new Promise((resolve, reject) => {
     var that = this;
     data.v='1.0';
     data.os='ios';
     var postData = data;
-    console.log(data)
+    //console.log(data)
     //console.log(url)
     wx.request({
       url: url,

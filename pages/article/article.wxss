@@ -1,0 +1,22 @@
+.tab{
+  width:280px;
+  display:flex;
+  margin:0 auto;
+  
+}
+.tab>view{
+  width:70px;height:40px;line-height:40px;text-align:center;position:relative;
+}
+.tab>view.active{
+  color:#ADCBE1
+}
+.tab>view.active::after{
+  position:absolute;left:20px;width:30px;height:2px;background: #ADCBE1;bottom:0;
+  content:"";display:block;
+}
+.new{
+  display:flex;width:90%;margin:0 auto;border-bottom:1px solid #eee;padding:10px 0;font-size:14px;height:400px;
+}
+.new>view{
+  flex:1;
+}

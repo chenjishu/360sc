@@ -1,0 +1,28 @@
+<view class="tab-wrapper">
+<view class="tab">
+<view class="tab-item {{currentIndex==0?'active':''}}" bindtap="changeIdx" data-index="0">茶圈</view>
+<view class="tab-item {{currentIndex==1?'active':''}}" bindtap="changeIdx" data-index="1">茶圈</view>
+<view class="tab-item {{currentIndex==2?'active':''}}" bindtap="changeIdx" data-index="2">茶圈</view>
+<view class="tab-item {{currentIndex==3?'active':''}}" bindtap="changeIdx" data-index="3">茶圈</view>
+</view>
+</view>
+
+
+  <swiper current="{{currentIndex}}"  indicator-dots bindchange="sChange" style="height:{{height-40}}px">
+  <block wx:for="{{news}}" wx:key="news">
+    <swiper-item>
+    <scroll-view style="height:{{height-40}}px" scroll-y bindscrolltolower="lower" lower-threshold="100">
+    <block wx:for="{{item.news}}" wx:key='item' wx:for-index="idx" wx:for-item="it">
+    <view class="new">
+    <view>
+    {{it.title}}
+    </view>
+    <image src="{{it.listImages}}" style="width:80px;" mode="widthFix"></image> 
+    </view>
+    </block>
+    <view wx:if="{{it.hasmore}}">正在加载</view>
+    <view wx:if="{{!it.hasmore&&it.done}}">没有更多了</view>
+    </scroll-view>
+    </swiper-item>
+  </block>
+</swiper>

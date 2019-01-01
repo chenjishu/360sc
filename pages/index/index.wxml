@@ -10,6 +10,7 @@
   </block>
   
 </swiper>
+<view style="height:100px;background:red;" bindtap="article"></view>
 <view class="selection">
   <view class="title">精选商品</view>
   <block wx:for="{{bestgoods}}" wx:key="bestgoods">

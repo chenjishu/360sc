@@ -18,7 +18,8 @@
     "pages/orderDetail/orderDetail",
     "pages/authorize/authorize",
     "pages/success/success",
-    "pages/logistics/logistics"
+    "pages/logistics/logistics",
+    "pages/article/article"
   ],
   "window": {
     "backgroundTextStyle": "light",
