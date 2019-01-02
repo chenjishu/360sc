@@ -13,7 +13,7 @@
     <swiper-item>
     <scroll-view style="height:{{height-40}}px" scroll-y bindscrolltolower="lower" lower-threshold="100">
     <block wx:for="{{item.news}}" wx:key='item' wx:for-index="idx" wx:for-item="it">
-    <view class="new" data-content="{{it.content}}" bindtap="tocontent">
+    <view class="new" data-id="{{it.id}}" data-like="{{it.isFabulous=='YES'?'true':false}}"  data-read="{{it.isRead=='YES'?'true':'false'}}" bindtap="tocontent">
     <view>
     {{it.title}}
     </view>

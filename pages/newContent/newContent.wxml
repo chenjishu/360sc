@@ -1,4 +1,16 @@
+
+<view style="padding:0 15px">
 <import src="../../wxParse/wxParse.wxml"/> 
 <view class="wxParse">
     <template is="wxParse" data="{{wxParseData:art.nodes}}"/>
+</view>
+</view>
+<view style="padding:15px;font-size:14px;color:#999;line-height:20px;">
+<view style="float:left">阅读{{readCount}}</view>
+<view  style="float:right;">
+<image style="width:20px;height:20px;vertical-align:middle" src="/images/zan.png" wx:if="{{!like}}"  bindtap="like"></image>
+<image style="width:20px;height:20px;vertical-align:middle" src="/images/zan-red.png"    wx:if="{{like}}"></image>
+{{fabulousCount}}
+喜欢
+</view>
 </view>

@@ -1,5 +1,14 @@
-// pages/newContent/newContent.js
+var util = require('../../utils/util.js')
+const _ = require('../../utils/underscore');
+var app = getApp();
+import urls from '../../utils/urls'
+import post from '../../utils/request'
 var WxParse = require('../../wxParse/wxParse.js');
+var uid;
+var id;
+var isFabulous;
+var like;
+var isread;
 Page({
 
   /**
@@ -13,11 +22,47 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    like=options.like;
+    isread=options.isread;
+    console.log(like,isread)
+    this.setData({
+      like,
+      isread
+    })
+    uid = wx.getStorageSync('uid')
     const that=this;
    //console.log(options.content)
-    var art = options.content
+    //var art = options.content
     //var art = " < p > 阿斯顿发斯蒂芬阿斯蒂芬阿斯顿发斯蒂芬阿沙发斯蒂芬阿斯蒂芬家加快水电费就给噢请问UI噢请问UI欧文UI哦斯蒂芬</p> <p>4556456</p> <p>416</p> <p>46</p> <p>644</p> <p>647489789764561874</p> <p>5648689687847845678478456<img src='http://120.76.238.48:800/hkyp/commodity/content/0b4ce0d4a85c4076b7969d4cc38695d5.jpg'/></p>"
-    WxParse.wxParse('art', 'html', art, that, 5);
+id=options.id
+    post(urls.content,{id:options.id}).then(res=>{
+      console.log(res)
+      const art=res.result.content;
+      WxParse.wxParse('art', 'html', art, that, 5);
+      that.setData({
+        fabulousCount: res.result.fabulousCount,
+        readCount: res.result.readCount
+      })
+      console.log(res.result.isFabulous)
+      console.log(res.result.isRead)
+      if (res.result.isFabulous=='Yes'){
+        that.setData({
+          like: true
+        })
+
+      }else{
+        that.setData({
+          like:false
+        })
+      }
+      if (!isread){
+        post(urls.read, { type: 2, id: id, uid }).then(res => {
+        })
+      }
+     
+    })
+    
+    
 
   },
 
@@ -68,5 +113,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  like(){
+    const that=this;
+    //console.log(uid)
+    post(urls.read,{type:1,id,uid}).then(res=>{
+      that.setData({
+        fabulousCount: that.data.fabulousCount+1
+      })
+    })
   }
 })
