@@ -19,7 +19,8 @@
     "pages/authorize/authorize",
     "pages/success/success",
     "pages/logistics/logistics",
-    "pages/article/article"
+    "pages/article/article",
+    "pages/newContent/newContent"
   ],
   "window": {
     "backgroundTextStyle": "light",

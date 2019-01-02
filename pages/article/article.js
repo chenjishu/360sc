@@ -4,7 +4,8 @@ var app = getApp();
 import urls from '../../utils/urls'
 import post from '../../utils/request'
 var news;
-var limit=10;
+var limit=16;
+var WxParse = require('../../wxParse/wxParse.js');
 Page({
 
   /**
@@ -104,5 +105,12 @@ Page({
   },
   lower(){
     this.getnews(this.data.currentIndex)
+  },
+  tocontent(e){
+    wx.navigateTo({
+     // url: '../newContent/newContent?content='+e.currentTarget.dataset.content,
+     
+      url: '../newContent/newContent?content=' +" <p> 阿斯顿发斯蒂芬阿斯蒂芬阿斯顿发斯蒂芬阿沙发斯蒂芬阿斯蒂芬家加快水电费就给噢请问UI噢请问UI欧文UI哦斯蒂芬</p > <p>4556456</p> <p>416</p> <p>46</p> <p>644</p> <p>647489789764561874</p> <p>5648689687847845678478456<img src='http://120.76.238.48:800/hkyp/commodity/content/0b4ce0d4a85c4076b7969d4cc38695d5.jpg' /></p>",
+    })
   }
 })

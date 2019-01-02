@@ -8,7 +8,12 @@
     <image src="{{imgsrc+'/hkyp/commodity/element/'}}{{item.photo_main}}" class="slide-image swiper" ></image>
   </swiper-item>
   </block>
-  
+
+
+
+
+
+
 </swiper>
 <view style="height:100px;background:red;" bindtap="article"></view>
 <view class="selection">
