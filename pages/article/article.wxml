@@ -8,16 +8,16 @@
 </view>
 
 
-  <swiper current="{{currentIndex}}"  indicator-dots bindchange="sChange" style="height:{{height-40}}px">
+  <swiper current="{{currentIndex}}"   bindchange="sChange" style="height:{{height-40}}px">
   <block wx:for="{{news}}" wx:key="news">
     <swiper-item>
     <scroll-view style="height:{{height-40}}px" scroll-y bindscrolltolower="lower" lower-threshold="100">
     <block wx:for="{{item.news}}" wx:key='item' wx:for-index="idx" wx:for-item="it">
-    <view class="new" data-id="{{it.id}}" data-like="{{it.isFabulous=='YES'?'true':false}}"  data-read="{{it.isRead=='YES'?'true':'false'}}" bindtap="tocontent">
+    <view class="new" data-id="{{it.id}}" data-like="{{it.isFabulous=='YES'?'true':'false'}}"  data-read="{{it.isRead=='YES'?'true':'false'}}" bindtap="tocontent">
     <view>
     {{it.title}}
     </view>
-    <image src="{{it.listImages}}" style="width:80px;" mode="widthFix"></image> 
+    <image src="{{it.listImages}}" style="width:80px;height:40px;" mode="aspectFill"></image> 
     </view>
     </block>
     <view wx:if="{{item.hasmore}}" style="padding:10px 0;text-align:center;font-size:12px;color:#999">正在加载</view>
