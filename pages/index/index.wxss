@@ -1,12 +1,12 @@
 /**index.wxss**/
 .swiper{
-  width:750rpx;height:400rpx;
+  width:750rpx;height:800rpx;
 }
 .search-wrapper{
- background: #ADCBE1;display:flex;flex-direction: row;padding:10px;
+ display:flex;flex-direction: row;padding:10px;position:fixed;width:100%;top:0;left:0;z-index:10;transition: all 0.3;
 }
 .search-wrapper>view{
- height:30px;text-align:center;font-size:14px;background: #fff;color:#999;width:100%;border-radius:15px;line-height:30px;
+ height:30px;text-align:center;font-size:14px;background: #fff;color:#999;width:60%;border-radius:15px;line-height:30px;margin:0 auto;
 }
 .search-wrapper .img-wrapper{
   flex:1;text-align: center;height:20px;
@@ -137,5 +137,58 @@ white-space: nowrap;line-height:20px;text-align:left;
 .do>view>image{
   width:20px;height:20px;margin-right:10px;vertical-align: middle
 }
+.cha{
+  text-align:center;display:flex;flex-direction: row;align-items: center;justify-content: center
+}
+.cha>view{
+  flex:1;
+}
+.cha image{
+  width:40px;height:40px;
+}
 
 
+.text-wrapper{
+ 
+}
+
+  .text {
+        padding: 20px 10px;
+        display: flex;
+        align-items: center;
+        background: #fff;
+       
+    }
+
+    .text .head-wrapper {
+        width: 68px;
+        text-align: center;
+    }
+
+    .text .head-wrapper image {
+        width: 50px;height:50px;
+    }
+
+    .text .line {
+        width: 1px;
+        height: 50px;
+        background: #ffd097;
+        margin: 5px 10px;
+    }
+
+    .text .content {
+        flex: 1;
+    }
+
+    .text .content view {
+        color: #333;
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .text .content view:nth-child(2) {
+        color: #999;
+        font-size: 12px;
+        text-align: right;
+        margin-top: 5px;
+    }

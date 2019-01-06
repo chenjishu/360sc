@@ -147,9 +147,32 @@ Page({
       console.log(res)
     })
   },
-  article(){
+  article(e){
+    console.log(e.currentTarget.dataset.id)
     wx.navigateTo({
-      url: '../article/article?index='+'1',
+      url: '../article/article?index='+e.currentTarget.dataset.id,
+    })
+  },
+  onPageScroll: function (e) {
+    const that=this;
+    console.log()
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res.windowHeight) // 获取可使用窗口高度
+        let bannerHeight = (e.scrollTop * (750 / res.windowWidth)); //将高度乘以换算后的该设备的rpx与px的比例
+        console.log(bannerHeight) //最后获得转化后得rpx单位的窗口高度
+        if (bannerHeight>800){
+          that.setData({
+            searchDark:true
+          })
+          
+        }else{
+          that.setData({
+            searchDark: false
+          })
+
+        }
+      }
     })
   }
 })

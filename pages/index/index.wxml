@@ -1,6 +1,5 @@
-<view class="search-wrapper" bindtap='togood'>
+<view class="search-wrapper" bindtap='togood' style="background:{{searchDark?'#333':''}}">
   <view>搜索商品</view>
-
 </view>
 <swiper indicator-dots="true" circular="ture" autoplay="true" interval="3000" duration="500" class="swiper">
   <block wx:for="{{bannerimg}}">
@@ -15,7 +14,64 @@
 
 
 </swiper>
-<view style="height:100px;background:red;" bindtap="article"></view>
+<view style="height:100px;" class="cha">
+<view data-id="0" bindtap="article" >
+<image src="/images/tea1.png"></image>
+<view>茶圈</view>
+</view>
+<view data-id="1" bindtap="article" >
+<image src="/images/tea2.png"></image>
+<view>香友</view>
+</view>
+<view data-id="2" bindtap="article" >
+<image src="/images/tea3.png"></image>
+<view>发烧友</view>
+</view>
+<view data-id="3" bindtap="article" >
+<image src="/images/tea4.png"></image>
+<view>行者</view>
+</view>
+
+</view>
+
+
+
+
+ <swiper vertical="{{true}}" autoplay="{{true}}" circular="{{true}}" class="text-wrapper" style="height:105px;margin:10px 0;">
+
+
+
+
+
+    <swiper-item>
+      <view class="text">
+        <view class="head-wrapper">
+          <image  src="/images/newImg/tx4.png"></image>
+        </view>
+        <view class="line"></view>
+        <view class="content">
+          <view>维修小哥挺帅的，务实利落，认真话少，嘿~~</view>
+          <view> — 喵女王甜甜</view>
+        </view>
+      </view>
+    </swiper-item>
+
+  </swiper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <view class="selection">
   <view class="title">精选商品</view>
   <block wx:for="{{bestgoods}}" wx:key="bestgoods">

@@ -1,9 +1,9 @@
 <view class="tab-wrapper">
 <view class="tab">
 <view class="tab-item {{currentIndex==0?'active':''}}" bindtap="changeIdx" data-index="0">茶圈</view>
-<view class="tab-item {{currentIndex==1?'active':''}}" bindtap="changeIdx" data-index="1">茶圈</view>
-<view class="tab-item {{currentIndex==2?'active':''}}" bindtap="changeIdx" data-index="2">茶圈</view>
-<view class="tab-item {{currentIndex==3?'active':''}}" bindtap="changeIdx" data-index="3">茶圈</view>
+<view class="tab-item {{currentIndex==1?'active':''}}" bindtap="changeIdx" data-index="1">香友</view>
+<view class="tab-item {{currentIndex==2?'active':''}}" bindtap="changeIdx" data-index="2">发烧友</view>
+<view class="tab-item {{currentIndex==3?'active':''}}" bindtap="changeIdx" data-index="3">行者</view>
 </view>
 </view>
 
@@ -17,7 +17,7 @@
     <view>
     {{it.title}}
     </view>
-    <image src="{{it.listImages}}" style="width:80px;height:40px;" mode="aspectFill"></image> 
+    <image src="{{it.listImages}}" lazy-load style="width:80px;height:60px;" mode="aspectFill"></image> 
     </view>
     </block>
     <view wx:if="{{item.hasmore}}" style="padding:10px 0;text-align:center;font-size:12px;color:#999">正在加载</view>

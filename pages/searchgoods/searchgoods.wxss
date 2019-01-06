@@ -2,7 +2,7 @@ page{
   background:#eee;
 }
 .search-wrapper{
-  padding:10px;background: #ADCBE1;display:flex;flex-direction: row;
+  padding:10px;background: #333;display:flex;flex-direction: row;
 }
 .search-wrapper>.input-wrapper{
  width:80%;height:30px;background-color: #fff;border-radius: 15px;
