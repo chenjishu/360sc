@@ -16,6 +16,7 @@ Page({
     bestgoods:{}
   },
   onLoad: function (options) {
+    this.getnews()
     this.bannerImg();
    // this.getnews()
   },
@@ -174,6 +175,21 @@ Page({
         }
       }
     })
-  }
+  },
+  getnews(index) {
+    const that = this
+    const obj = {};
+    //console.log(obj);
+   
+      //news[index].hasmore = false;
+      post(urls.article, obj).then(res => {
+        console.log(res.result)
+        that.setData({
+          news:res.result
+        })
+      })
+    
+
+  },
 })
 
