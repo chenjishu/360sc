@@ -155,33 +155,30 @@ Page({
     })
   },
   onPageScroll: function (e) {
+    console.log(e)
     const that=this;
     console.log()
     wx.getSystemInfo({
       success: function (res) {
         console.log(res.windowHeight) // 获取可使用窗口高度
-        let bannerHeight = (e.scrollTop * (750 / res.windowWidth)); //将高度乘以换算后的该设备的rpx与px的比例
-        console.log(bannerHeight) //最后获得转化后得rpx单位的窗口高度
-        if (bannerHeight>800){
+       // let bannerHeight = (e.scrollTop * (750 / res.windowWidth)); //将高度乘以换算后的该设备的rpx与px的比例
+       // console.log(bannerHeight) //最后获得转化后得rpx单位的窗口高度
+        if (e.scrollTop+50 >res.windowHeight){
           that.setData({
-            searchDark:true
+            //searchDark:true
           })
-          
         }else{
           that.setData({
-            searchDark: false
+           // searchDark: false
           })
 
         }
       }
     })
   },
-  getnews(index) {
+  getnews() {
     const that = this
     const obj = {};
-    //console.log(obj);
-   
-      //news[index].hasmore = false;
       post(urls.article, obj).then(res => {
         console.log(res.result)
         that.setData({
@@ -191,5 +188,10 @@ Page({
     
 
   },
+  tocontent(e) {
+    wx.navigateTo({
+      url: '../newContent/newContent?id=' + e.currentTarget.dataset.id + '&like=' + e.currentTarget.dataset.like + '&isread=' + e.currentTarget.dataset.read,
+    })
+  }
 })
 
