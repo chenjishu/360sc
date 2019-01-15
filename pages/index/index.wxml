@@ -3,7 +3,7 @@
 </view>
 <swiper indicator-dots="true" circular="ture" autoplay="true" interval="3000" duration="500" class="swiper">
   <block wx:for="{{bannerimg}}">
-  <swiper-item class="swiper">
+  <swiper-item class="swiper" data-uri="{{item.uri}}" bindtap="toD">
     <image src="{{imgsrc+'/hkyp/commodity/element/'}}{{item.photo_main}}" class="slide-image swiper" mode="aspectFill"></image>
   </swiper-item>
   </block>
@@ -14,7 +14,7 @@
 
 
 </swiper>
-<view style="height:100px;" class="cha">
+<view style="height:60px;" class="cha">
 <view data-id="0" bindtap="article" >
 <image src="/images/tea1.png"></image>
 <view>茶圈</view>
@@ -37,13 +37,13 @@
 
 
 <view  style="border-top:4px solid #e3e3e3;border-bottom:4px solid #e3e3e3">
- <swiper vertical="{{true}}" autoplay="{{true}}" circular="{{true}}" class="text-wrapper" style="height:105px;margin:10px 0;">
+ <swiper vertical="{{true}}" autoplay="{{true}}" circular="{{true}}" class="text-wrapper" style="height:65px;margin:10px 0;">
 
 
 
 
 <block wx:for="{{news}}" wx:key="{{index}}">
-    <swiper-item data-id="{{item.id}}" bindtap="tocontent" >
+    <swiper-item data-id="{{item.id}}" >
       <view class="text">
         <view class="head-wrapper">
           <image  src="{{item.listImages}}" style="border-radius:50%"></image>
@@ -51,7 +51,7 @@
         <view class="line"></view>
         <view class="content">
           <view>{{item.title}}</view>
-          <view></view>
+          <view>-{{item.author||'匿名'}}</view>
         </view>
       </view>
     </swiper-item>

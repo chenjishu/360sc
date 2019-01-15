@@ -1,0 +1,46 @@
+<!--pages/goodDetail/goodDetail.wxml-->
+<view class="good-detail">
+  <swiper indicator-dots="true" circular="ture" autoplay="true" interval="3000" duration="500" class="swiper">
+  <block wx:for="{{albumImg}}">
+    <swiper-item class="swiper">
+      <image src="{{imgSrc+item}}" class="slide-image swiper"/>
+    </swiper-item>
+  </block>
+</swiper>
+  <view class="name">
+    {{info.goodsName}}
+  </view>
+  <view class="pri">￥{{info.shopPrice}}</view>
+  <view class="line"></view>
+  <block wx:for="{{goodsLabel}}">
+   <view class="lag">{{item}}</view>
+  </block>
+ 
+</view>
+<view class="good-intro">
+  <view class="title">商品详情</view>
+  <view class="content">{{info.goodsDescribe}}</view>
+  <view>
+  <block wx:for="{{goodsDesc}}">
+   <image src="{{item}}" mode='widthFix' style="width:100%;display:block;">
+  </image>
+  </block>
+ 
+  </view>
+
+</view>
+<view class="fix-bar">
+<view class="see"  bindtap="seeShop" wx:if="{{info.wishStatus==2}}">
+<image mode="widthFix" src="/images/car.png" style="width:36px;margin-top:12px;"></image>
+</view>
+<view class="btn add" catchtap='addShop' data-goodsSn="{{info.goodsSn}}">
+<text wx:if="{{info.wishStatus==2}}">加入购物车</text>
+<text wx:if="{{info.wishStatus==1}}">去购物车查看商品</text>
+
+</view>
+<view class="btn buy" bindtap='buy'>立即购买</view>
+
+
+</view>
+
+<view class="shape"></view>

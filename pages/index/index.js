@@ -135,7 +135,7 @@ Page({
     const obj={};
     const that=this;
     post(urls.bannerImg, obj).then(res=>{
-      //console.log(res)
+      console.log(res)
       that.setData({
         bannerimg:res.result[0]
       })
@@ -154,7 +154,7 @@ Page({
       url: '../article/article?index='+e.currentTarget.dataset.id,
     })
   },
-  onPageScroll: function (e) {
+  /*onPageScroll: function (e) {
     console.log(e)
     const that=this;
     console.log()
@@ -175,7 +175,7 @@ Page({
         }
       }
     })
-  },
+  },*/
   getnews() {
     const that = this
     const obj = {};
@@ -191,6 +191,12 @@ Page({
   tocontent(e) {
     wx.navigateTo({
       url: '../newContent/newContent?id=' + e.currentTarget.dataset.id + '&like=' + e.currentTarget.dataset.like + '&isread=' + e.currentTarget.dataset.read,
+    })
+  },
+  toD(e){
+    const uri=e.currentTarget.dataset.uri;
+    wx.navigateTo({
+      url: '../goodD/goodD?uri='+uri,
     })
   }
 })

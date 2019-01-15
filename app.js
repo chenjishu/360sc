@@ -54,6 +54,23 @@ App({
     })
     return promise;
   },
+
+  urGetSto: function () {
+    var promise = new Promise((resolve, reject) => {
+      wx.getStorage({
+        key: 'uid',
+        success: function (res) {
+          resolve(res.data)
+        },
+        fail: function () {
+          wx.redirectTo({
+            url: '../login/login',
+          })
+        }
+      })
+    })
+    return promise;
+  },
   getsto(){
     var promise = new Promise((resolve, reject) => {
       wx.getStorage({

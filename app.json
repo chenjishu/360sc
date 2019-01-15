@@ -20,7 +20,8 @@
     "pages/success/success",
     "pages/logistics/logistics",
     "pages/article/article",
-    "pages/newContent/newContent"
+    "pages/newContent/newContent",
+    "pages/goodD/goodD"
   ],
   "window": {
     "backgroundTextStyle": "light",
