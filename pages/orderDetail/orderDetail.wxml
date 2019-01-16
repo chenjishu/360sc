@@ -67,5 +67,6 @@
 <view bindtap="cancelOrder" data-id="{{detail.id}}" wx:if="{{detail.status==='0'||detail.status==='1'}}">取消订单</view>
 <view bindtap="logistics" data-no="{{detail.orderNo}}" wx:if="{{detail.status==='2'}}">查看物流</view>
 <view bindtap="continuePay" data-no="{{detail.orderNo}}" wx:if="{{detail.status==='0'}}">继续付款</view>
+<view bindtap="delOrder" data-id="{{detail.id}}" wx:if="{{detail.status==='6'}}">删除订单</view>
 
 </view>

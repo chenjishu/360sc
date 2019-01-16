@@ -28,9 +28,10 @@ page{
 }
 
 .first-bar {
-  height: 50rpx;
+  height: 50px;
   line-height: 50rpx;
   border: 1px solid #eee;
+  display:flex;justify-content: space-between;
 }
 
 .time {
@@ -38,7 +39,7 @@ page{
 }
 
 .fin {
-  float: right;
+  
   margin-right: 30rpx;
 }
 
@@ -128,4 +129,10 @@ page{
 }
 .btn-wrapper>view{
   width:70px;float:right;height:20px;border-radius:10px;border:1px solid #999;text-align:center;line-height: 20px;color:#999;margin-left:10px;
+}
+.ds{
+  display:flex;align-items: center;
+}
+.ds>view{
+  display:flex;align-items: center;padding-right:15px;
 }

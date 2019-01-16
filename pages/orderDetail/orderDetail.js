@@ -114,6 +114,28 @@ Page({
 
       })
     })
+  },
+  delOrder(e){
+    const id=e.currentTarget.dataset.id
+    wx.showModal({
+      title: '确认删除？',
+      content: '确认删除？',
+      success: function (r) {
+        if (r.confirm) {
+          post(urls.delOrder, { id: id }).then(res => {
+            wx.showToast({
+              title: '删除成功',
+            })
+            setTimeout(function () {
+              wx.navigateBack({
+
+              })
+            }, 3000)
+          })
+        }
+      }
+    })
+    
   }
 
 }) 

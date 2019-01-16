@@ -13,22 +13,26 @@ Page({
     isLoaded:false
   },
   onLoad: function (options) {
+  },
+  onShow(){
+    ordering = false
+
     const that = this;
     currentPage = 1;
     hasmore = true;
-    app.myGetSto().then((res)=>{
+    app.myGetSto().then((res) => {
       wx.showLoading()
       that.orderList(res, currentPage, that.data.status).then((res) => {
         wx.hideLoading()
         console.log(res)
         that.setData({
           list: res.result,
-          imgSrc:res.imgSrc,
-          isLoaded:true
+          imgSrc: res.imgSrc,
+          isLoaded: true
         })
-        if(res.result.length==0){
+        if (res.result.length == 0) {
           that.setData({
-            noOne:true
+            noOne: true
           })
         }
       }).catch((err) => {
@@ -36,9 +40,6 @@ Page({
         console.error(err)
       })
     })
-  },
-  onShow(){
-    ordering = false
   },
   orderList(Uid,page,status) {
     const that = this;
@@ -89,7 +90,7 @@ Page({
         if (r.confirm) {
         app.comfirm(e.currentTarget.dataset.id).then(res => {
           console.log(res)
-          that.onLoad()
+          that.onShow()
         })
       }}
     })
@@ -104,7 +105,7 @@ Page({
         if (r.confirm){
           app.cancel(e.currentTarget.dataset.id).then(res => {
             console.log(res)
-            that.onLoad()
+            that.onShow()
           })
         }
       
@@ -216,5 +217,29 @@ Page({
         
       })
     })
+  },
+  delOrder(e) {
+    const id = e.currentTarget.dataset.id
+    const that=this;
+    wx.showModal({
+      title: '确认删除？',
+      content: '确认删除？',
+      success: function (r) {
+        if (r.confirm) {
+          post(urls.delOrder, { id: id }).then(res => {
+            console.log(res)
+            currentPage = 1;
+            hasmore = true;
+            ordering = false;
+            wx.showToast({
+              title: '删除成功',
+            })
+            that.onShow()
+          })
+        }
+      }
+    })
+    
+
   }
 })

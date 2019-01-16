@@ -13,7 +13,7 @@
   <view class="pri">￥{{info.shopPrice}}</view>
   <view class="line"></view>
   <block wx:for="{{goodsLabel}}">
-   <view class="lag">{{item}}</view>
+   <!--<view class="lag">{{item}}</view>-->
   </block>
  
 </view>

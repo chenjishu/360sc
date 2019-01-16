@@ -31,5 +31,6 @@ module.exports = {
   article:URL+"/api/route.htm?method=article.list",
   content: URL +"/api/route.htm?method=article.getInfo",
   read: URL +"/api/route.htm?method=article.update",
-  goodD: URL +"/api/route.htm?method=commodity.getByCommodityIdAndInfo"
+  goodD: URL +"/api/route.htm?method=commodity.getByCommodityIdAndInfo",
+  delOrder: URL +"/api/route.htm?method=trade.removeCancelOrder"
 };

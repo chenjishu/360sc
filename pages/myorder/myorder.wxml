@@ -15,16 +15,27 @@
     <block wx:for="{{list}}" wx:key="order-list">
       <view class="order" bindtap='toDetail' data-orderid="{{item.orderNo}}">
         <view class="order-list" bindtap="orderitem" data-id="{{order.id}}" data-ordertype="{{order.orderType}}">
+        
           <view class="first-bar">
-            <text class="time">{{item.createTime}}</text>
+          <view class="ds">
+          <text class="time">{{item.createTime}}</text>
+          </view>
+          <view class="ds">
             <text class="fin" wx:if="{{item.status==0}}">待付款</text>
             <text class="fin" wx:if="{{item.status==1}}">待发货</text>
             <text class="fin" wx:if="{{item.status==2}}">已发货</text>
             <text class="fin" wx:if="{{item.status==3}}">待评价</text>
             <text class="fin" wx:if="{{item.status==4}}">已完成</text>
             <text class="fin" wx:if="{{item.status==5}}">退货</text>
-            <text class="fin" wx:if="{{item.status==6}}">已取消</text>
+            
             <text class="fin" wx:if="{{item.status==7}}">已改价</text>
+            <view catchtap='delOrder' data-id="{{item.id}}" wx:if="{{item.status==6}}">
+            <text class="fin" wx:if="{{item.status==6}}">已取消</text>
+            <image src="/images/this.png" style="width:20px;height:20px"></image></view>
+          </view>
+            
+          
+             
           </view>
           <block wx:for="{{item.orderItemList}}" wx:for-index="idx" wx:for-item="itemG" wx:key="good-list">
             <view class="second-bar">
@@ -46,6 +57,7 @@
           <view class="btn-wrapper">
             <view catchtap='cancelOrder' data-id="{{item.id}}" wx:if="{{item.status==='0'||item.status==='1'}}">取消订单</view>
             <view catchtap='confirm' data-id="{{item.id}}" wx:if="{{item.status==='2'}}">确认收货</view>
+             
              <view catchtap='logistics' data-no="{{item.orderNo}}" wx:if="{{item.status==='2'}}">查看物流</view>
              <view catchtap='continuePay'  data-no="{{item.orderNo}}" wx:if="{{item.status==='0'}}">继续付款</view>
           </view>
